@@ -2,7 +2,7 @@
 %define debug_package %{nil}
 
 Name:    web-eid
-Version: 2.4.0
+Version: 2.3.1
 Release: 1
 Summary: Web eID browser extension helper application
 License: MIT
