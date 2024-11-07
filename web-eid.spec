@@ -82,6 +82,7 @@ fi
 %{_libdir}/mozilla/native-messaging-hosts/
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/google-chrome/extensions/
+%{_datadir}/mozilla/extensions/
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 
 %changelog
