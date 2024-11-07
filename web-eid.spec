@@ -85,4 +85,7 @@ fi
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 
 %changelog
+* Thu Nov 07 2024 Raiko Koosaar <koosaar@live.com> 2.3.0-1
+- new package (2.3.0) built with tito
+
 
