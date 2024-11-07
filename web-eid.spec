@@ -3,7 +3,7 @@
 
 Name:    web-eid
 Version: 2.4.0
-Release: 1
+Release: 2
 Summary: Web eID browser extension helper application
 License: MIT
 URL:     https://github.com/web-eid/web-eid-app
@@ -85,6 +85,9 @@ fi
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 
 %changelog
+* Thu Nov 07 2024 Raiko Koosaar <koosaar@live.com> 2.4.0-2
+- adding version 2.4.0-2 (koosaar@live.com)
+
 * Thu Nov 07 2024 Raiko Koosaar <koosaar@live.com> 2.4.0-1
 - adding version 2.4.0 (koosaar@live.com)
 * Thu Nov 07 2024 Raiko Koosaar <koosaar@live.com> 2.3.1-1
