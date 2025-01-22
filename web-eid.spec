@@ -49,21 +49,19 @@ pushd web-eid-app
 %install
 pushd web-eid-app
 %cmake_install
-#cmake --install redhat-linux-build --prefix "%{buildroot}%{_prefix}"
+
+install -m 644 -Dt %{buildroot}/%{_sysconfdir}/chromium/native-messaging-hosts %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
+install -m 644 -Dt %{buildroot}/%{_sysconfdir}/opt/chrome/native-messaging-hosts %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
 
 
-# install -m 644 -Dt %{buildroot}/%{_sysconfdir}/chromium/native-messaging-hosts %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
-# install -m 644 -Dt %{buildroot}/%{_sysconfdir}/opt/chrome/native-messaging-hosts %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
+# # Install Chrome/Chromium native messaging manifest files.
+# # Create the destination directories
+# install -d -m 0755 %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
+# install -d -m 0755 %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
 
-
-# Install Chrome/Chromium native messaging manifest files.
-# Create the destination directories
-install -d -m 0755 %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
-install -d -m 0755 %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
-
-# Copy the manifest files from the build directory
-install -p -m 0644 %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
-install -p -m 0644 %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
+# # Copy the manifest files from the build directory
+# install -p -m 0644 %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
+# install -p -m 0644 %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
 
 # # Install Chromium extension manifest file.
 # # Create the destination directory
@@ -106,12 +104,16 @@ fi
 %files
 %defattr(-,root,root,-)
 %{_bindir}/%{name}
-%{_sysconfdir}/chromium/native-messaging-hosts/
-%{_sysconfdir}/opt/chrome/native-messaging-hosts/
+#%{_sysconfdir}/chromium/native-messaging-hosts/
+#%{_sysconfdir}/opt/chrome/native-messaging-hosts/
 %{_libdir}/mozilla/native-messaging-hosts/
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/google-chrome/extensions/
+#%{_datadir}/google-chrome/extensions/
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
+%{_sysconfdir}/chromium/native-messaging-hosts/eu.webeid.json
+%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
+%{_datadir}/google-chrome/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
+
 
 %changelog
 * Thu Nov 07 2024 Raiko Koosaar <koosaar@live.com> 2.6.0-1
