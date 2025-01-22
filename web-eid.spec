@@ -104,12 +104,14 @@ fi
 %files
 %defattr(-,root,root,-)
 %{_bindir}/%{name}
+%{_sysconfdir}/chromium/native-messaging-hosts/
+%{_sysconfdir}/opt/chrome/native-messaging-hosts/
 %{_libdir}/mozilla/native-messaging-hosts/
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/google-chrome/extensions/
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
-%{_sysconfdir}/chromium/native-messaging-hosts/eu.webeid.json
-%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
-%{_datadir}/google-chrome/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
+/usr/etc/chromium/native-messaging-hosts/eu.webeid.json
+/usr/etc/opt/chrome/native-messaging-hosts/eu.webeid.json
 
 
 %changelog
