@@ -44,10 +44,8 @@ the extension in command-line mode.
 
 %prep
 %autosetup -n %{name}-app-%{version}
-# Rename the extension manifest to the correct name, leave it in the source dir
-pushd web-eid-app
-cp ../%{SOURCE2} ncibgoaomkmdpilpocfeponihegamlic.json
-popd
+# Rename the extension manifest to the correct name
+cp %{SOURCE2} %{name}-app/ncibgoaomkmdpilpocfeponihegamlic.json
 
 %build
 pushd web-eid-app
