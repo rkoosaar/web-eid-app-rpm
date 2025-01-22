@@ -60,6 +60,17 @@ pushd web-eid-app
 # Remove the eu.webeid.json file that cmake installs, as we're installing it separately
 rm -f %{buildroot}%{_datadir}/web-eid/eu.webeid.json
 
+# Install the native messaging host manifest files
+install -d -m 0755 %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
+install -p -m 0644 %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/eu.webeid.json
+
+install -d -m 0755 %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
+install -p -m 0644 %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
+
+# Install the Chromium extension manifest file
+install -d -m 0755 %{buildroot}%{_datadir}/chromium/extensions/
+install -p -m 0644 %{buildroot}%{_datadir}/web-eid/ncibgoaomkmdpilpocfeponihegamlic.json %{buildroot}%{_datadir}/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
+
 # Install native messaging manifests for Chrome/Chromium, use -p to create parent directories
 install -m 644 -Dp %{SOURCE3} %{buildroot}%{_datadir}/web-eid/eu.webeid.json
 install -m 644 -Dp %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/eu.webeid.json
@@ -91,6 +102,7 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files
+%defattr(-,root,root)
 %license LICENSE.md
 %doc README.md
 %{_bindir}/%{name}
