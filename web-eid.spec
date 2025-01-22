@@ -110,6 +110,7 @@ fi
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/google-chrome/extensions/
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
+# Ugly hack - I have to put in absolute paths as the above ones are not working for some reason.
 /usr/etc/chromium/native-messaging-hosts/eu.webeid.json
 /usr/etc/opt/chrome/native-messaging-hosts/eu.webeid.json
 /usr/share/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
