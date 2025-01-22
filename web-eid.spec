@@ -3,13 +3,15 @@
 
 Name:    web-eid
 Version: 2.6.0
-Release: 1
+Release: 1%{?dist}
 Summary: Web eID browser extension helper application
 License: MIT
 URL:     https://github.com/web-eid/web-eid-app
 Source0: %{name}-%{version}.tar.gz
 # Source for the extension manifest
-Source2:        %{name}-extension.json
+Source2: %{name}-extension.json
+# Source for the native messaging host manifest
+Source3: eu.webeid.json
 
 BuildRequires: bash
 BuildRequires: desktop-file-utils
