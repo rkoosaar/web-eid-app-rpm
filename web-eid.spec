@@ -42,8 +42,10 @@ the extension in command-line mode.
 
 %prep
 %autosetup -n %{name}-app-%{version}
-# Rename the extension manifest to the correct name
-cp ../%{name}-extension.json ncibgoaomkmdpilpocfeponihegamlic.json
+# Rename the extension manifest to the correct name, leave it in the source dir
+pushd web-eid-app
+cp ../%{SOURCE2} ncibgoaomkmdpilpocfeponihegamlic.json
+popd
 
 %build
 pushd web-eid-app
@@ -58,12 +60,14 @@ pushd web-eid-app
 # Remove the eu.webeid.json file that cmake installs, as we're installing it separately
 rm -f %{buildroot}%{_datadir}/web-eid/eu.webeid.json
 
-# Install native messaging manifests for Chrome/Chromium
-install -m 644 -Dt %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/ %{buildroot}%{_datadir}/web-eid/eu.webeid.json
-install -m 644 -Dt %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/ %{buildroot}%{_datadir}/web-eid/eu.webeid.json
+# Install native messaging manifests for Chrome/Chromium, use -p to create parent directories
+install -m 644 -Dp %{SOURCE3} %{buildroot}%{_datadir}/web-eid/eu.webeid.json
+install -m 644 -Dp %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/eu.webeid.json
+install -m 644 -Dp %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
 
-# Install extension manifest for Chromium (Chrome uses a different path)
-install -m 644 -Dt %{buildroot}%{_datadir}/chromium/extensions ncibgoaomkmdpilpocfeponihegamlic.json
+# Install extension manifest for Chromium and Google Chrome
+install -m 644 -Dp ncibgoaomkmdpilpocfeponihegamlic.json %{buildroot}%{_datadir}/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
+install -m 644 -Dp ncibgoaomkmdpilpocfeponihegamlic.json %{buildroot}%{_datadir}/google-chrome/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
 popd
 
 %check
@@ -98,6 +102,7 @@ fi
 %{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
 %dir %{_datadir}/chromium/extensions/
 %{_datadir}/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
+%dir %{_datadir}/google-chrome/extensions/
 %{_datadir}/google-chrome/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
