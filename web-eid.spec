@@ -48,30 +48,37 @@ pushd web-eid-app
 
 %install
 pushd web-eid-app
-# %cmake_install
-cmake --install redhat-linux-build --prefix "%{buildroot}%{_prefix}"
+%cmake_install
+#cmake --install redhat-linux-build --prefix "%{buildroot}%{_prefix}"
+
+
+# install -m 644 -Dt %{buildroot}/%{_sysconfdir}/chromium/native-messaging-hosts %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
+# install -m 644 -Dt %{buildroot}/%{_sysconfdir}/opt/chrome/native-messaging-hosts %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
 
 
 # Install Chrome/Chromium native messaging manifest files.
 # Create the destination directories
-install -d -m 0755 %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
-install -d -m 0755 %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
+install -d -m 0755 %{buildroot}/%{_sysconfdir}/chromium/native-messaging-hosts/
+install -d -m 0755 %{buildroot}/%{_sysconfdir}/opt/chrome/native-messaging-hosts/
 
 # Copy the manifest files from the build directory
-install -p -m 0644 redhat-linux-build/eu.webeid.json %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
-install -p -m 0644 redhat-linux-build/eu.webeid.json %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
+install -p -m 0644 %{buildroot}/%{_datadir}/web-eid/eu.webeid.json %{buildroot}/%{_sysconfdir}/chromium/native-messaging-hosts/
+install -p -m 0644 %{buildroot}/%{_datadir}/web-eid/eu.webeid.json %{buildroot}/%{_sysconfdir}/opt/chrome/native-messaging-hosts/
 
-# Install Chromium extension manifest file.
-# Create the destination directory
-install -d -m 0755 %{buildroot}%{_datadir}/chromium/extensions/
+# # Install Chromium extension manifest file.
+# # Create the destination directory
+# install -d -m 0755 %{buildroot}/%{_datadir}/chromium/extensions/
 
-# Copy the manifest file from the build directory
-install -p -m 0644 redhat-linux-build/ncibgoaomkmdpilpocfeponihegamlic.json %{buildroot}%{_datadir}/chromium/extensions/
+# # Copy the manifest file from the build directory
+# install -p -m 0644 redhat-linux-build/ncibgoaomkmdpilpocfeponihegamlic.json %{buildroot}/%{_datadir}/chromium/extensions/
+
+#    /usr/share/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
+#    -- Installing: /builddir/build/BUILD/web-eid-2.6.0-build/BUILDROOT/usr/share/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
 
 # Remove the temporarily installed eu.webeid.json file from the standard install location.
-rm -f %{buildroot}%{_datadir}/web-eid/eu.webeid.json
+rm -f %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
 
-# rm -f %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
+#rm -f %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
 # rm -f %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
 # rm -f %{buildroot}%{_sysconfdir}/usr/etc/chromium/native-messaging-hosts/eu.webeid.json
 popd
