@@ -58,12 +58,12 @@ pushd web-eid-app
 
 # Install Chrome/Chromium native messaging manifest files.
 # Create the destination directories
-install -d -m 0755 %{buildroot}/%{_sysconfdir}/chromium/native-messaging-hosts/
-install -d -m 0755 %{buildroot}/%{_sysconfdir}/opt/chrome/native-messaging-hosts/
+install -d -m 0755 %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
+install -d -m 0755 %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
 
 # Copy the manifest files from the build directory
-install -p -m 0644 %{buildroot}/%{_datadir}/web-eid/eu.webeid.json %{buildroot}/%{_sysconfdir}/chromium/native-messaging-hosts/
-install -p -m 0644 %{buildroot}/%{_datadir}/web-eid/eu.webeid.json %{buildroot}/%{_sysconfdir}/opt/chrome/native-messaging-hosts/
+install -p -m 0644 %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
+install -p -m 0644 %{buildroot}%{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
 
 # # Install Chromium extension manifest file.
 # # Create the destination directory
@@ -76,7 +76,7 @@ install -p -m 0644 %{buildroot}/%{_datadir}/web-eid/eu.webeid.json %{buildroot}/
 #    -- Installing: /builddir/build/BUILD/web-eid-2.6.0-build/BUILDROOT/usr/share/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
 
 # Remove the temporarily installed eu.webeid.json file from the standard install location.
-rm -f %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
+rm -f %{buildroot}%{_datadir}/web-eid/eu.webeid.json
 
 #rm -f %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
 # rm -f %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
