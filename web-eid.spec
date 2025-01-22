@@ -54,6 +54,10 @@ install -m 644 -Dt %{buildroot}/%{_sysconfdir}/chromium/native-messaging-hosts %
 install -m 644 -Dt %{buildroot}/%{_sysconfdir}/opt/chrome/native-messaging-hosts %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
 
 rm -f %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
+rm -f %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
+rm -f %{buildroot}%{_sysconfdir}/usr/etc/chromium/native-messaging-hosts/eu.webeid.json
+popd
+
 
 %check
 pushd web-eid-app
