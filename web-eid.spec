@@ -53,20 +53,27 @@ cmake --install redhat-linux-build --prefix "%{buildroot}%{_prefix}"
 
 
 # Install Chrome/Chromium native messaging manifest files.
+# Create the destination directories
 install -d -m 0755 %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
-install -p -m 0644 %{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/eu.webeid.json
-
 install -d -m 0755 %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
-install -p -m 0644 %{_datadir}/web-eid/eu.webeid.json %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
+
+# Copy the manifest files from the build directory
+install -p -m 0644 redhat-linux-build/eu.webeid.json %{buildroot}%{_sysconfdir}/chromium/native-messaging-hosts/
+install -p -m 0644 redhat-linux-build/eu.webeid.json %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/
 
 # Install Chromium extension manifest file.
+# Create the destination directory
 install -d -m 0755 %{buildroot}%{_datadir}/chromium/extensions/
-install -p -m 0644 %{_datadir}/web-eid/ncibgoaomkmdpilpocfeponihegamlic.json %{buildroot}%{_datadir}/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
-popd
 
-rm -f %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
-rm -f %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
-rm -f %{buildroot}%{_sysconfdir}/usr/etc/chromium/native-messaging-hosts/eu.webeid.json
+# Copy the manifest file from the build directory
+install -p -m 0644 redhat-linux-build/ncibgoaomkmdpilpocfeponihegamlic.json %{buildroot}%{_datadir}/chromium/extensions/
+
+# Remove the temporarily installed eu.webeid.json file from the standard install location.
+rm -f %{buildroot}%{_datadir}/web-eid/eu.webeid.json
+
+# rm -f %{buildroot}/%{_datadir}/web-eid/eu.webeid.json
+# rm -f %{buildroot}%{_sysconfdir}/opt/chrome/native-messaging-hosts/eu.webeid.json
+# rm -f %{buildroot}%{_sysconfdir}/usr/etc/chromium/native-messaging-hosts/eu.webeid.json
 popd
 
 
