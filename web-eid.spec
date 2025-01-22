@@ -1,32 +1,32 @@
 %global _hardened_build 1
 %define debug_package %{nil}
 
-Name:           web-eid
-Version:        2.6.0
-Release:        1%{?dist}
-Summary:        Web eID
-License:        MIT
-URL:            https://github.com/web-eid/web-eid-app
-Source0:        %{name}-%{version}.tar.gz
+Name: web-eid
+Version: 2.6.0
+Release: 1%{?dist}
+Summary: Web eID
+License: MIT
+URL: https://github.com/web-eid/web-eid-app
+Source0: %{name}-%{version}.tar.gz
 
-BuildRequires:  cmake >= 3.13
-BuildRequires:  gcc-c++
-BuildRequires:  desktop-file-utils
-BuildRequires:  git
-BuildRequires:  openssl-devel
-BuildRequires:  pcsc-lite-devel
-BuildRequires:  qt5-qtbase-devel
-BuildRequires:  qt5-qtsvg-devel
-BuildRequires:  qt5-qttools-devel
-BuildRequires:  googletest-devel
+BuildRequires: cmake >= 3.13
+BuildRequires: gcc-c++
+BuildRequires: desktop-file-utils
+BuildRequires: git
+BuildRequires: openssl-devel
+BuildRequires: pcsc-lite-devel
+BuildRequires: qt5-qtbase-devel
+BuildRequires: qt5-qtsvg-devel
+BuildRequires: qt5-qttools-devel
+BuildRequires: googletest-devel
 
-Requires:       openssl
-Requires:       pcsc-lite
-Requires:       pcsc-lite-ccid
-Requires:       qt5-qtbase
-Requires:       qt5-qtsvg
-Requires:       qt5-qtdeclarative
-Requires:       qt5-qttools
+Requires: openssl
+Requires: pcsc-lite
+Requires: pcsc-lite-ccid
+Requires: qt5-qtbase
+Requires: qt5-qtsvg
+Requires: qt5-qtdeclarative
+Requires: qt5-qttools
 
 %description
 The Web eID application performs cryptographic digital signing and authentication
