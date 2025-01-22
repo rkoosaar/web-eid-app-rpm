@@ -112,7 +112,7 @@ fi
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 /usr/etc/chromium/native-messaging-hosts/eu.webeid.json
 /usr/etc/opt/chrome/native-messaging-hosts/eu.webeid.json
-
+/usr/share/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
 
 %changelog
 * Thu Nov 07 2024 Raiko Koosaar <koosaar@live.com> 2.6.0-1
