@@ -14,4 +14,5 @@ index f6e2ac0..1234567 100644
 +
 
  // The rule of five (C++ Core guidelines C.21).
- #define PCSC_CPP_DISABLE_COPY_MOVE(Class)  
+ #define PCSC_CPP_DISABLE_COPY_MOVE(Class)
+ 
