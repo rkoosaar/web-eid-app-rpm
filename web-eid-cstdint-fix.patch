@@ -1,0 +1,24 @@
+diff --git a/web-eid-app/src/pcsc/pcsc-cpp/src/card.cpp b/web-eid-app/src/pcsc/pcsc-cpp/src/card.cpp
+index a9b1de3..f2c3b3e 100644
+--- a/web-eid-app/src/pcsc/pcsc-cpp/src/card.cpp
++++ b/web-eid-app/src/pcsc/pcsc-cpp/src/card.cpp
+@@ -1,6 +1,7 @@
+ #include "card.hpp"
+ #include <pcsc/winscard.h>
+ #include <stdexcept>
++#include <cstdint>
+
+ namespace pcsc {
+
+diff --git a/web-eid-app/src/pcsc/pcsc-cpp/src/context.cpp b/web-eid-app/src/pcsc/pcsc-cpp/src/context.cpp
+index e0a8e4c..adcb6d7 100644
+--- a/web-eid-app/src/pcsc/pcsc-cpp/src/context.cpp
++++ b/web-eid-app/src/pcsc/pcsc-cpp/src/context.cpp
+@@ -1,6 +1,7 @@
+ #include "context.hpp"
+ #include <pcsc/winscard.h>
+ #include <stdexcept>
++#include <cstdint>
+
+ namespace pcsc {
+
