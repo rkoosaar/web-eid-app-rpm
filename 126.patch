@@ -1,6 +1,7 @@
-diff -urNr web-eid-orig/lib/libelectronic-id/lib/libpcsc-cpp/include/pcsc-cpp/pcsc-cpp.hpp web-eid/lib/libelectronic-id/lib/libpcsc-cpp/include/pcsc-cpp/pcsc-cpp.hpp
---- web-eid-orig/lib/libelectronic-id/lib/libpcsc-cpp/include/pcsc-cpp/pcsc-cpp.hpp	2024-09-05 12:18:55.000000000 +0200
-+++ web-eid/lib/libelectronic-id/lib/libpcsc-cpp/include/pcsc-cpp/pcsc-cpp.hpp	2025-04-14 10:17:50.788869273 +0200
+diff --git a/web-eid-app/lib/libelectronic-id/lib/libpcsc-cpp/include/pcsc-cpp/pcsc-cpp.hpp b/web-eid-app/lib/libelectronic-id/lib/libpcsc-cpp/include/pcsc-cpp/pcsc-cpp.hpp
+index f6e2ac0..1234567 100644
+--- a/web-eid-app/lib/libelectronic-id/lib/libpcsc-cpp/include/pcsc-cpp/pcsc-cpp.hpp
++++ b/web-eid-app/lib/libelectronic-id/lib/libpcsc-cpp/include/pcsc-cpp/pcsc-cpp.hpp
 @@ -24,9 +24,11 @@
  
  #include "flag-set-cpp/flag_set.hpp"
@@ -11,6 +12,6 @@ diff -urNr web-eid-orig/lib/libelectronic-id/lib/libpcsc-cpp/include/pcsc-cpp/pc
  #include <vector>
 -#include <limits>
 +
- 
+
  // The rule of five (C++ Core guidelines C.21).
- #define PCSC_CPP_DISABLE_COPY_MOVE(Class)                                                          \
+ #define PCSC_CPP_DISABLE_COPY_MOVE(Class)  
