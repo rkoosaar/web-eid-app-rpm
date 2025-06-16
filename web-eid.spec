@@ -118,6 +118,8 @@ fi
 
 %changelog
 * Mon Jun 16 2025 Raiko Koosaar <koosaar@live.com>
+- Fix: Add cstdint fix patch to be applied via autosetup (koosaar@live.com)
+* Mon Jun 16 2025 Raiko Koosaar <koosaar@live.com>
 - 
 
 * Mon Jun 16 2025 Raiko Koosaar <koosaar@live.com>
