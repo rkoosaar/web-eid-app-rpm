@@ -3,12 +3,11 @@
 
 Name:    web-eid
 Version: 2.6.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Web eID browser extension helper application
 License: MIT
 URL:     https://github.com/web-eid/web-eid-app
 Source0: %{name}-%{version}.tar.gz
-Patch0: web-eid-cstdint-fix.patch
 
 BuildRequires: bash
 BuildRequires: desktop-file-utils
@@ -40,7 +39,7 @@ is the native messaging host for the extension). Also works standalone without
 the extension in command-line mode.
 
 %prep
-%autosetup -p1
+%autosetup -N
 
 %build
 pushd web-eid-app
@@ -117,6 +116,9 @@ fi
 /usr/share/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
 
 %changelog
+* Mon Jun 16 2025 Raiko Koosaar <koosaar@live.com> 2.6.0-4
+- Rolling back the .patch
+
 * Mon Jun 16 2025 Raiko Koosaar <koosaar@live.com> 2.6.0-3
 - Fix: Add cstdint fix patch to be applied via autosetup (koosaar@live.com)
 * Mon Jun 16 2025 Raiko Koosaar <koosaar@live.com>
