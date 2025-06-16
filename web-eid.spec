@@ -3,7 +3,7 @@
 
 Name:    web-eid
 Version: 2.6.0
-Release: 9%{?dist}
+Release: 10%{?dist}
 Summary: Web eID browser extension helper application
 License: MIT
 URL:     https://github.com/web-eid/web-eid-app
@@ -117,6 +117,9 @@ fi
 /usr/share/chromium/extensions/ncibgoaomkmdpilpocfeponihegamlic.json
 
 %changelog
+* Mon Jun 16 2025 Raiko Koosaar <koosaar@live.com> 2.6.0-10
+- fix patch 126 fix (koosaar@live.com)
+
 * Mon Jun 16 2025 Raiko Koosaar <koosaar@live.com> 2.6.0-9
 - patch 126 fix fix fix (koosaar@live.com)
 
